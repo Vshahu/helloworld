@@ -7,7 +7,7 @@ pipeline {
             sh '''
                 git add .
                 git commit -m "push to git"
-                git push https://github.com/Vshahu/helloworld.git feature
+                git push origin https://github.com/Vshahu/helloworld.git feature
             '''
         }
     }
