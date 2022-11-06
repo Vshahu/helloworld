@@ -1,20 +1,16 @@
-if (env.BRANCH_NAME == "master") {
-    properties([
-        pipelineTriggers([
-            pollSCM("H/5 * * * *")
-        ])
-    ])
-}
-
 pipeline {
     agent none
-
-    stages {
-        stage("greet the general") {
-            steps {
-                echo "hello there"
-            }
+    stage('Git Push'){
+    steps{
+        script{
+           
+            sh '''
+                git add .
+                git commit -m "push to git"
+                git push https://github.com/Vshahu/helloworld.git feature
+            '''
         }
     }
+}
 }
 @Vshahu
